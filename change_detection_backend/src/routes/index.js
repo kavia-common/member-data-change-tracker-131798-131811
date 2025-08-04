@@ -2,6 +2,8 @@ const express = require('express');
 const healthController = require('../controllers/health');
 
 const router = express.Router();
+const changeJobRoutes = require('./changeJob');
+
 // Health endpoint
 
 /**
@@ -31,5 +33,8 @@ const router = express.Router();
  *                   example: development
  */
 router.get('/', healthController.check.bind(healthController));
+
+// Change detection job API endpoints
+router.use('/job', changeJobRoutes);
 
 module.exports = router;
